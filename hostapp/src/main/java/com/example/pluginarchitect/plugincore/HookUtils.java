@@ -4,24 +4,20 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
-import android.util.Log;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
  * @author AlexisYin
  */
-public class hookUtils {
-
-
+public class HookUtils {
     /**
      * hook AMS对象
      * 对AMS的startActivity方法进行拦截
      * @param context
      */
-    public static void kookAMS(Context context) throws Exception {
+    public static void hookAMS(Context context) throws Exception {
         //1. 获取AMS对象
         //1.1 获取静态属性ActivityManager.IActivityManagerSingleton的值
         Field iActivityManagerSingletonField = null;
@@ -96,7 +92,5 @@ public class hookUtils {
         mCallbackField.set(handler, new MyCallback());
 
         //3. 在callback中将Intent对象中的RegisteredActivity替换为PluginActivity
-
     }
-
 }

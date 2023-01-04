@@ -34,8 +34,8 @@ public class PluginManager {
             //插件加载
             loadApk();
             //组件支持
-            hookUtils.kookAMS(context);
-            hookUtils.hookHandler();
+            HookUtils.hookAMS(context);
+            HookUtils.hookHandler();
         } catch (Exception e) {
             Log.d("TAG", "init: " + e);
         }
